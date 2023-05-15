@@ -70,6 +70,9 @@
         return result;
     }
 
+    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    
+
     /**
      * Display current time in `#time` element.
      * 
@@ -91,11 +94,11 @@
 
     // Get data for the current date.
     today = new Date()
-    let [date, month, year, day, week] = [today.getDate(), today.getMonth() + 1, today.getFullYear(), today.getDay(),today.getWeek()]
+    let [date, month, year, day, week] = [today.getDate(), today.getMonth() + 1, today.getFullYear(), dayNames[today.getDay()],today.getWeek()]
     
     // Display data in HTML element.
     let dateElem = document.getElementById("date")
-    dateElem.innerHTML = `${date}. ${month}. ${year}; Day ${day}, Week ${week}`
+    dateElem.innerHTML = `${day} ${date}. ${month}. ${year}, Week ${week}`
 
 
 </script>
