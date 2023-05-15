@@ -52,13 +52,17 @@
         return result;
     }
 
+    Date.prototype.getWeek = function() {
+        return getWeek(this)
+    }
+
     // Get data for the current date.
     today = new Date()
-    let [day, month, year, week] = [today.getDay(), today.getMonth(), today.getFullYear(), getWeek(today)]
+    let [date, month, year, day, week] = [today.getDate(), today.getMonth(), today.getFullYear(), today.getDay(),today.getWeek()]
     
     // Display data in HTML element.
     let infoElem = document.getElementById("info")
-    infoElem.innerHTML = `${day}. ${month}. ${year}, Week: ${week}`
+    infoElem.innerHTML = `${date}. ${month}. ${year}; Week: ${week}, Day: ${day}`
 
 </script>
 </html>
