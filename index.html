@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today!</title>
+    <style>
+        main {
+          width: 100%;
+          min-height: 100vh;
+          background: rgb(234, 234, 234);
+          display: grid;
+        }
+
+        #info {
+          background: rgb(255, 255, 255);
+          place-self: center;
+          font-size: 7rem;
+          padding: 1rem;
+          border: 1px solid #ddd;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div id="info"></div>
+    </main>
+</body>
+
+<script type="text/javascript" defer>
+
+    /**
+     * Get the week number.
+     * 
+     * @param date {Date} The given date.
+     * @returns {number} The week number of the given date.  
+     */
+     function getWeek(date) {
+        // Calculate elapsed days between fist and given date of the year.
+        const startDate = new Date(date.getFullYear(), 0, 1);
+        const elapsedDays = Math.floor((date - startDate) / (24 * 60 * 60 * 1000)); 
+        
+        // Calculate the week number of the current year.
+        const result = Math.ceil(elapsedDays / 7);
+        
+        return result;
+    }
+
+    // Get data for the current date.
+    today = new Date()
+    let [day, month, year, week] = [today.getDay(), today.getMonth(), today.getFullYear(), getWeek(today)]
+    
+    // Display data in HTML element.
+    let infoElem = document.getElementById("info")
+    infoElem.innerHTML = `${day}. ${month}. ${year}, Week: ${week}`
+
+</script>
+</html>
