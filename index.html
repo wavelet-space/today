@@ -91,7 +91,7 @@
 
     // Get data for the current date.
     today = new Date()
-    let [date, month, year, day, week] = [today.getDate(), today.getMonth(), today.getFullYear(), today.getDay(),today.getWeek()]
+    let [date, month, year, day, week] = [today.getDate(), today.getMonth() + 1, today.getFullYear(), today.getDay(),today.getWeek()]
     
     // Display data in HTML element.
     let dateElem = document.getElementById("date")
